@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditRegistrarCalculoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditRegistrarCalculoLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{registrarCalculoController.selected.id}" title="#{bundle.EditRegistrarCalculoTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditRegistrarCalculoLabel_resultado}" for="resultado" />
+                    <h:inputText id="resultado" value="#{registrarCalculoController.selected.resultado}" title="#{bundle.EditRegistrarCalculoTitle_resultado}" />
+                    <h:outputLabel value="#{bundle.EditRegistrarCalculoLabel_usuario}" for="usuario" />
+                    <h:inputText id="usuario" value="#{registrarCalculoController.selected.usuario}" title="#{bundle.EditRegistrarCalculoTitle_usuario}" />
+                    <h:outputLabel value="#{bundle.EditRegistrarCalculoLabel_fecha_ejecucion}" for="fecha_ejecucion" />
+                    <h:inputText id="fecha_ejecucion" value="#{registrarCalculoController.selected.fecha_ejecucion}" title="#{bundle.EditRegistrarCalculoTitle_fecha_ejecucion}" />
+                </h:panelGrid>
+                <h:commandLink action="#{registrarCalculoController.update}" value="#{bundle.EditRegistrarCalculoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditRegistrarCalculoViewLink}"/>
+                <br />
+                <h:commandLink action="#{registrarCalculoController.prepareList}" value="#{bundle.EditRegistrarCalculoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditRegistrarCalculoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
